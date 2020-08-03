@@ -1,0 +1,20 @@
+function incNumber(){
+    
+var c=0;
+  if (document.getElementById("<%= txtInc.ClientID%>").value != "") {
+
+		
+	c = parseInt(document.getElementById('<%=txtInc.ClientID %>').value);
+       c++;
+     document.getElementById('<%=txtInc.ClientID %>').value = c;
+    
+}
+else
+{
+	c=1;
+	document.getElementById('<%=txtInc.ClientID %>').value =c;
+}
+}
+
+=================
+

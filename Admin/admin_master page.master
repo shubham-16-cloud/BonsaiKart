@@ -1,0 +1,177 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin_master page.master.cs" Inherits="Admin_admin_master_page" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin master page
+    </title>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="adminstyle.css" rel="stylesheet" />
+    <link href="../user_master%20style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="../css/media_query.css" rel="stylesheet" />
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("[data-toggle=popover]").popover({
+                trigger: 'focus',
+                content: function () {
+                    return $('#popover-content').html();
+                }
+            });
+        });
+
+        function fnOnUpdateValidators() {
+            if (typeof (Page_Validators) != "undefined") {
+                for (var i = 0; i < Page_Validators.length; i++) {
+                    var val = Page_Validators[i];
+                    var ctrl = document.getElementById(val.controltovalidate);
+                    if (ctrl != null && ctrl.style != null) {
+                        if (!val.isvalid) {
+                            ctrl.style.background = "";
+                            ctrl.style.border = "2px solid red";
+                        }
+                        else
+                            ctrl.style.background = "white";
+                    }
+                }
+            }
+        }
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
+            <ContentTemplate>
+                <div class="container-fluid">
+                    <div class="row" style="background-color: #343131; color: white; padding: 5px">
+                        <div id="google_translate_element" class="pull-right" style="padding-right: 30px;"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                    </div>
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <!--header start-->
+                            <button type="button" data-toggle="collapse" class="navbar-toggle" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class=" navbar-brand" href="#">
+                                <asp:Image ID="imglogo" runat="server" ImageUrl="~/image/Logo.jpg" CssClass="img-responsive logosize" />
+                            </a>
+                        </div>
+                        <!--header end-->
+
+                        <div id="demo" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navul ">
+                                <li><a href="adminhome.aspx"><span>Home</span></a></li>
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Add product<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="Add_plant.aspx">Add Plant</a></li>
+                                        <li><a href="Add_seeds.aspx">Add Seeds</a></li>
+                                        <li><a href="Add_pots.aspx">Add Pots</a></li>
+                                        <li><a href="Add_pebbles.aspx">Add Pebbles</a></li>
+                                        <li><a href="add_fertilizer.aspx">Add Fertilizer</a></li>
+                                        <li><a href="Add_sliderimg.aspx">Add slider image</a></li>
+
+                                    </ul>
+
+                                    <li><a href="new_orderview.aspx"><span>Order</span></a></li>
+                                    <li><a href="addvetisementconfirm.aspx"><span>Advetisment</span></a></li>
+                                    <li><a href="add_discount.aspx"><span>Discount</span></a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right navul">
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <asp:Label ID="lblname" runat="server" Style="font-size: 18px; color: brown;"></asp:Label></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a>
+                                            <asp:Button ID="btnlogout" runat="server" CssClass="btn btn-info btn-sm" OnClick="btnlogout_Click" Width="100%" Text="LogOut" /></a></li>
+                                    </ul>
+                            </ul>
+                        </div>
+
+
+                    </nav>
+
+
+
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <footer id="myFooter">
+                        <div class="container">
+                            <div class="row ">
+                                <!--row start-->
+
+                                <div class="col-md-3 col-xs-6 text-center">
+                                    <a href="#">
+                                        <asp:Image ID="imgfootlogo" runat="server" ImageUrl="~/image/Logo.jpg" CssClass="img-responsive img-thumbnail img-circle footlogo" />
+                                    </a>
+                                </div>
+                                <div class="col-md-2 col-xs-6  text-center">
+                                    <h5>Get started</h5>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#">Log Out</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-2 col-xs-6 text-center">
+                                    <h5>About us</h5>
+                                    <ul>
+                                        <li><a href="company_information_page.aspx">Company Information</a></li>
+                                        <li><a href="contact _us_page.aspx">Contact us</a></li>
+
+                                        <li><a href="#">View Reviews</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-2 col-xs-6 text-center">
+                                    <h5>Support</h5>
+                                    <ul>
+                                        <li><a href="#">View FAQ</a></li>
+                                        <li><a href="#">Help desk</a></li>
+                                        <li><a href="#">Forums</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-3 col-xs-12 text-center">
+                                    <div class="social-networks">
+                                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                                    </div>
+                                    <button type="button" class="btn btn-primary">Share It</button>
+
+                                </div>
+                            </div>
+                            <!--row end-->
+                        </div>
+                        <div class="footer-copyright">
+                            <p>Â© 2016 Copyright Text </p>
+                        </div>
+                    </footer>
+
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+    </form>
+</body>
+</html>
