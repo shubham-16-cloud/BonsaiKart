@@ -19,9 +19,9 @@
 <br>
 
 <h2>Environment:</h2>
-Core Language : C# with ASP.NET Control
-Scripting Language: JavaScript, jQuery
-Frontend : Microsoft Visual Studio 2013, Bootstrap
-Backend : MS SQL Server 2014
+Core Language : C# with ASP.NET Control<br>
+Scripting Language: JavaScript, jQuery<br>
+Frontend : Microsoft Visual Studio 2013, Bootstrap<br>
+Backend : MS SQL Server 2014<br>
 
 
